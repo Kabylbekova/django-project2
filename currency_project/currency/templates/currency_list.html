@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курсы валют</title>
+</head>
+<body>
+    <h1>Курсы валют</h1>
+
+    {% if currencies %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Название валюты</th>
+                    <th>Курс</th>
+                    <th>Логотип</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for currency in currencies %}
+                    <tr>
+                        <td>{{ currency.name }}</td>
+                        <td>{{ currency.rate }}</td>
+                        <td><img src="{{ currency.logo_url }}" alt="{{ currency.name }} logo" width="50"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Нет доступных данных.</p>
+    {% endif %}
+</body>
+</html>
